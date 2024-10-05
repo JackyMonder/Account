@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Account
+namespace LoginApp
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -19,6 +19,14 @@ namespace Account
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            string username = usernameTextBox.Text;
+            string password = passwordBox.Password;
+
+            // Xử lý đăng nhập ở đây
+            MessageBox.Show($"Tên đăng nhập: {username}\nMật khẩu: {password}");
         }
     }
 }
