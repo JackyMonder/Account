@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LoginApp
+namespace AccountUI.UI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -27,6 +27,13 @@ namespace LoginApp
 
             // Xử lý đăng nhập ở đây
             MessageBox.Show($"Tên đăng nhập: {username}\nMật khẩu: {password}");
+        }
+        private void RegisterTextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Mở cửa sổ đăng ký (hoặc bất kỳ hành động nào bạn muốn thực hiện)
+            RegisWindow registerWindow = new RegisWindow();
+            registerWindow.Show();
+            this.Close(); // Đóng cửa sổ đăng nhập nếu cần
         }
     }
 }
