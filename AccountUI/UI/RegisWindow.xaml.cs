@@ -11,20 +11,24 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DATA.Models;
 
 namespace AccountUI.UI
 {
     /// <summary>
     /// Interaction logic for RegisWindow.xaml
     /// </summary>
-    public partial class RegisWindow : Window
+
+    using Bus.Account_Service;
+    public partial class RegisWindow : Window 
     {
         public RegisWindow()
         {
             InitializeComponent();
         }
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        private void RegisterButton_Click(object sender, RoutedEventArgs e) 
         {
+            Account_Add AccAdd = new Account_Add();
             // Xử lý logic đăng ký ở đây
             string name = nameTextBox.Text;
             string email = emailTextBox.Text;
@@ -38,8 +42,14 @@ namespace AccountUI.UI
                 return;
             }
 
+            
+            AccAdd.SaveUser(username, password);
+
             // Tiến hành đăng ký
             MessageBox.Show("Đăng ký thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+            MainWindow loginWindow = new MainWindow();
+            loginWindow.Show();
+            this.Close();
         }
 
         private void LoginTextBlock_MouseDown(object sender, MouseButtonEventArgs e)

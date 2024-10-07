@@ -16,9 +16,6 @@ namespace Bus.Product_Service
         = string.Empty;
         public AddProt() 
         { 
-            //Hom nay mua
-            //sdfnajsnfl
-            //asfnlajnfs
 
         }
             

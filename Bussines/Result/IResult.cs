@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bus.Result
+namespace Bus.IResult
 {
     public interface IResult
     {
