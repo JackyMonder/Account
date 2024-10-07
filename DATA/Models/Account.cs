@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore;
 namespace DATA.Models;
 
 [Table("Account")]
-[Index("UserId", Name = "UQ__Account__206A9DF96BEDFEFE", IsUnique = true)]
-[Index("Username", Name = "UQ__Account__536C85E4595C7C5F", IsUnique = true)]
+[Index("UserId", Name = "UQ__Account__206A9DF9A651C3D0", IsUnique = true)]
+[Index("Username", Name = "UQ__Account__536C85E4CDF675D6", IsUnique = true)]
 public partial class Account
 {
     [Key]
@@ -28,8 +28,6 @@ public partial class Account
     [StringLength(50)]
     [Unicode(false)]
     public string Password { get; set; }
-
-    public byte Role { get; set; }
 
     [InverseProperty("User")]
     public virtual ICollection<Customer> Customers { get; set; } = new List<Customer>();

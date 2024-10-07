@@ -10,7 +10,7 @@ namespace DATA.Models;
 
 [PrimaryKey("RuleId", "ProductId")]
 [Table("Discount_rule")]
-[Index("RuleId", Name = "UQ__Discount__70A80C77876A58C2", IsUnique = true)]
+[Index("RuleId", Name = "UQ__Discount__70A80C77D2FFD64D", IsUnique = true)]
 public partial class DiscountRule
 {
     [Key]

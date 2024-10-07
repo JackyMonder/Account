@@ -10,7 +10,7 @@ namespace DATA.Models;
 
 [PrimaryKey("DiscountId", "RankId")]
 [Table("Discount")]
-[Index("DiscountId", Name = "UQ__Discount__63D7679D33829555", IsUnique = true)]
+[Index("DiscountId", Name = "UQ__Discount__63D7679DAA42CD3A", IsUnique = true)]
 public partial class Discount
 {
     [Key]

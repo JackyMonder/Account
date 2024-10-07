@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bus.Account_Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,22 +12,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using DATA.Models;
 
 namespace AccountUI.UI
 {
     /// <summary>
-    /// Interaction logic for RegisWindow.xaml
+    /// Interaction logic for ERegisWindow.xaml
     /// </summary>
-
-    using Bus.Account_Service;
-    public partial class RegisWindow : Window 
+    public partial class ERegisWindow : Window
     {
-        public RegisWindow()
+        public ERegisWindow()
         {
             InitializeComponent();
         }
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        private void ERegisterButton_Click(object sender, RoutedEventArgs e)
         {
             Account_Add AccAdd = new Account_Add();
 
@@ -44,7 +42,7 @@ namespace AccountUI.UI
             }
 
 
-            AccAdd.SaveUser(username, password, 0);
+            AccAdd.SaveUser(username, password, 111);
 
             // Tiến hành đăng ký
             MessageBox.Show("Đăng ký thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -62,3 +60,4 @@ namespace AccountUI.UI
         }
     }
 }
+

@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DATA.Models;
 
-public partial class LOLMINHContext : DbContext
+public partial class DataContext : DbContext
 {
-    public LOLMINHContext()
+    public DataContext()
     {
     }
 
-    public LOLMINHContext(DbContextOptions<LOLMINHContext> options)
+    public DataContext(DbContextOptions<DataContext> options)
         : base(options)
     {
     }
@@ -39,98 +39,98 @@ public partial class LOLMINHContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=*;Initial Catalog=LOLMINH;User ID=sa;Password=12345;Trust Server Certificate=True");
+        => optionsBuilder.UseSqlServer("Data Source=MYNGOC;Initial Catalog=QLKho;Persist Security Info=True;User ID=sa;Password=12345");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Account>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__Account__206A9DF8027DBF1E");
+            entity.HasKey(e => e.UserId).HasName("PK__Account__206A9DF83CFCDCE4");
         });
 
         modelBuilder.Entity<Bill>(entity =>
         {
-            entity.HasKey(e => e.BillId).HasName("PK__Bill__CF6F718B28263BE6");
+            entity.HasKey(e => e.BillId).HasName("PK__Bill__CF6F718B138979FE");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Bills)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Bill__Customer_i__656C112C");
+                .HasConstraintName("FK__Bill__Customer_i__66603565");
 
             entity.HasOne(d => d.Employee).WithMany(p => p.Bills)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Bill__Employee_i__6C190EBB");
+                .HasConstraintName("FK__Bill__Employee_i__00200768");
         });
 
         modelBuilder.Entity<BillDetail>(entity =>
         {
-            entity.HasKey(e => new { e.BillId, e.ProductId }).HasName("PK__Bill_det__F6EC4E7253EB5E37");
+            entity.HasKey(e => new { e.BillId, e.ProductId }).HasName("PK__Bill_det__F6EC4E723465482A");
 
             entity.HasOne(d => d.Bill).WithMany(p => p.BillDetails)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Bill_deta__Bill___68487DD7");
+                .HasConstraintName("FK__Bill_deta__Bill___693CA210");
 
             entity.HasOne(d => d.Product).WithMany(p => p.BillDetails)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Bill_deta__Produ__693CA210");
+                .HasConstraintName("FK__Bill_deta__Produ__6A30C649");
         });
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__8CB382B1E78B3D45");
+            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__8CB382B1CFE353B3");
 
             entity.HasOne(d => d.Rank).WithMany(p => p.Customers)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Customer__Rank_i__66603565");
+                .HasConstraintName("FK__Customer__Rank_i__6754599E");
 
             entity.HasOne(d => d.User).WithMany(p => p.Customers)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Customer__User_i__6383C8BA");
+                .HasConstraintName("FK__Customer__User_i__6477ECF3");
         });
 
         modelBuilder.Entity<Discount>(entity =>
         {
-            entity.HasKey(e => new { e.DiscountId, e.RankId }).HasName("PK__Discount__A18CB4FFC5FC008B");
+            entity.HasKey(e => new { e.DiscountId, e.RankId }).HasName("PK__Discount__A18CB4FFECD3B5A0");
 
             entity.HasOne(d => d.Rank).WithMany(p => p.Discounts)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Discount__Rank_i__6754599E");
+                .HasConstraintName("FK__Discount__Rank_i__68487DD7");
         });
 
         modelBuilder.Entity<DiscountRule>(entity =>
         {
-            entity.HasKey(e => new { e.RuleId, e.ProductId }).HasName("PK__Discount__492B338F1B255FCB");
+            entity.HasKey(e => new { e.RuleId, e.ProductId }).HasName("PK__Discount__492B338FEEFCBFEC");
 
             entity.HasOne(d => d.Product).WithMany(p => p.DiscountRules)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Discount___Produ__6A30C649");
+                .HasConstraintName("FK__Discount___Produ__6B24EA82");
         });
 
         modelBuilder.Entity<Employee>(entity =>
         {
-            entity.HasKey(e => e.EmployeeId).HasName("PK__Employee__781228D9B2AE96DB");
+            entity.HasKey(e => e.EmployeeId).HasName("PK__Employee__781228D9B9487E19");
 
             entity.HasOne(d => d.User).WithMany(p => p.Employees)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Employee__User_i__6477ECF3");
+                .HasConstraintName("FK__Employee__User_i__656C112C");
         });
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.ProductId).HasName("PK__Product__9833FF92CE0614EF");
+            entity.HasKey(e => e.ProductId).HasName("PK__Product__9833FF9222CB3A8B");
 
             entity.HasOne(d => d.Type).WithMany(p => p.Products)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Product__Type_id__6B24EA82");
+                .HasConstraintName("FK__Product__Type_id__6C190EBB");
         });
 
         modelBuilder.Entity<ProductType>(entity =>
         {
-            entity.HasKey(e => e.TypeId).HasName("PK__Product___FE91E1E65776675F");
+            entity.HasKey(e => e.TypeId).HasName("PK__Product___FE91E1E6ACE69C06");
         });
 
         modelBuilder.Entity<Rank>(entity =>
         {
-            entity.HasKey(e => e.RankId).HasName("PK__Rank__25BD363DD3609F69");
+            entity.HasKey(e => e.RankId).HasName("PK__Rank__25BD363DADCAA365");
         });
 
         OnModelCreatingPartial(modelBuilder);

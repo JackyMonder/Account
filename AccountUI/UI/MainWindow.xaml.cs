@@ -26,6 +26,7 @@ namespace AccountUI.UI
             string username = usernameTextBox.Text;
             string password = passwordBox.Password;
 
+            
             // Xử lý đăng nhập ở đây
             MessageBox.Show($"Tên đăng nhập: {username}\nMật khẩu: {password}");
         }
@@ -34,6 +35,13 @@ namespace AccountUI.UI
             // Mở cửa sổ đăng ký (hoặc bất kỳ hành động nào bạn muốn thực hiện)
             RegisWindow registerWindow = new RegisWindow();
             registerWindow.Show();
+            this.Close(); // Đóng cửa sổ đăng nhập nếu cần
+        }
+        private void ERegisterTextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Mở cửa sổ đăng ký (hoặc bất kỳ hành động nào bạn muốn thực hiện)
+            ERegisWindow eregisterWindow = new ERegisWindow();
+            eregisterWindow.Show();
             this.Close(); // Đóng cửa sổ đăng nhập nếu cần
         }
     }

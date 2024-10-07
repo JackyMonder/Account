@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DATA.Models;
 
 [Table("Bill")]
-[Index("BillId", Name = "UQ__Bill__CF6F718A12EE8FF1", IsUnique = true)]
+[Index("BillId", Name = "UQ__Bill__CF6F718AA8108725", IsUnique = true)]
 public partial class Bill
 {
     [Key]

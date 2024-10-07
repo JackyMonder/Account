@@ -8,5 +8,6 @@ namespace DATA.Repository
 {
     internal class Class1
     {
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿{
    "CodeGenerationMode": 4,
-   "ContextClassName": "LOLMINHContext",
+   "ContextClassName": "DataContext",
    "ContextNamespace": null,
    "FilterSchemas": false,
    "IncludeConnectionString": true,
@@ -15,6 +15,9 @@
    "T4TemplatePath": null,
    "Tables": [
       {
+         "ExcludedColumns": [
+            "Role"
+         ],
          "Name": "[dbo].[Account]",
          "ObjectType": 0
       },
